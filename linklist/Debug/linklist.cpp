@@ -1,54 +1,72 @@
-using namespace std;
 #include <iostream>
-#include <stdlib.h>
+#include <conio.h>
 #include <stdio.h>
+#include <stdlib.h>
+using namespace std;
 
-struct simpul
-{
-	char dat[10];
-	struct simpul *next;
-	
-}; struct simpul* temp, temp, * head = NULL, * ptr = NULL;
+struct Simpul {
+	char dat[10], masukan[10];
+	struct Simpul* next;
+};
+struct Simpul* temp, * head = NULL, * ptr = NULL, di;
 
-void main() {
-	char masukan[10];
+int main() {
+	cout << "Entry Serial Data" << endl;
+	int j = 0;
+	char cari[10];
 	do
 	{
-		cout << "Input data: "; gets_s(masukan);
-		if (strlen(masukan)>0)
+		int i = j++;
+		cout << "Data Ke-" << j << " : ";
+		gets_s(di.masukan);
+		if (strlen(di.masukan) > 0)
 		{
-			if (strlen(masukan)>0)
+			if (strlen(di.masukan) > 0)
 			{
-				for (int i = strlen(masukan); i < 10; i++)
+				temp = (struct Simpul*) malloc(sizeof(struct Simpul));
+				strcpy_s(temp->dat, di.masukan);
+				temp->next = NULL;
+				if (head == NULL)
 				{
-					strcat_s(masukan, " ");
-					temp = (struct simpul *)malloc(sizeof(struct simpul));
-					strcpy(temp->dat, masukan);
-					temp->next = NULL;
-					if (head==NULL)
-					{
-						head = temp;
-						ptr = head;
-					}
-					else
-					{
-						ptr->next = temp;
-						ptr = ptr->next;
-					}
+					head = temp;
+					ptr = head;
 				}
+				else
 				{
-
+					ptr->next = temp;
+					ptr = ptr->next;
 				}
 			}
 		}
-	} while (strlen (masukan)>0);
-	if (head!=NULL)
+	} while (strlen(di.masukan) > 0);
+	int i = j - 1;
+	cout << "Jumlah Data : " << i << endl;
+	cout << endl;
+	if (head != NULL)
 	{
 		ptr = head;
-		cout << "[" << ptr << "] [" << ptr->dat << "] [" << ptr->next << "]\t";
-		ptr = ptr->next;
-	}while (ptr!=NULL)
-	{
-
+		cout << "Hasil Entry Data : " << endl;
+		do
+		{
+			cout << "[" << ptr->dat << "] --> Alamat PTR " << ptr << " --> Next PTR " << ptr->next << endl;
+			ptr = ptr->next;
+		} while (ptr != NULL);
 	}
+	cout << endl; bool loop;
+	loop = true;
+	do
+	{
+		cout << "Data yang anda cari : ";
+		gets_s(cari);
+		if (strlen(cari) != 0) {
+			ptr = head;
+			cout << "Data ini ada pada alamat : " << ptr << endl;
+		}
+		else
+		{
+			ptr = head;
+			cout << "Data ini ada pada alamat : " << ptr->next << endl;
+		}
+	} while (strlen(cari) > 0);
+
 }
