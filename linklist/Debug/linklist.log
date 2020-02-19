@@ -1,0 +1,3 @@
+﻿  linklist.cpp
+C:\Users\annep\source\repos\linklist\linklist\linklist.cpp(11,25): error C2040: 'temp': 'simpul' differs in levels of indirection from 'simpul *'
+C:\Users\annep\source\repos\linklist\linklist\linklist.cpp(13,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
