@@ -3,13 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 using namespace std;
-
+ 
 struct Simpul {
 	char dat[10], masukan[10];
 	struct Simpul* next;
 };
 struct Simpul* temp, * head = NULL, * ptr = NULL, di;
-
+ 
 int main() {
 	cout << "Entry Serial Data" << endl;
 	int j = 0;
@@ -52,21 +52,18 @@ int main() {
 			ptr = ptr->next;
 		} while (ptr != NULL);
 	}
-	cout << endl; bool loop;
-	loop = true;
-	do
-	{
-		cout << "Data yang anda cari : ";
-		gets_s(cari);
-		if (strlen(cari) != 0) {
-			ptr = head;
-			cout << "Data ini ada pada alamat : " << ptr << endl;
-		}
-		else
-		{
-			ptr = head;
-			cout << "Data ini ada pada alamat : " << ptr->next << endl;
-		}
-	} while (strlen(cari) > 0);
+	cout << endl; 
+char ser[20];
+  cout << "masukan data yang ingin dicari " << endl;
+  gets(ser);
 
+  for (start=head; start->ptr!=NULL; start=start->ptr)
+  {
+    if (strcmp(start->dat, ser) == 0)
+    {
+      cout << "found" <<ptr <<endl
+      return;
+    }
+  }
+  cout << "not found" << endl;
 }
